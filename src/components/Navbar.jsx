@@ -9,8 +9,8 @@ const Navbar = () => {
 
   return (
     // 'sticky top-0' sahifa kontentini to'sib qo'ymaydi va tepada yopishib turadi
-    <nav className="sticky top-0 z-50 bg-gray-900 text-white shadow-lg relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="sticky top-0 z-50 bg-gray text-white shadow-lg relative">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
           {/* Logo */}
@@ -19,7 +19,7 @@ const Navbar = () => {
             onClick={closeMenu} 
             className="text-xl font-bold text-emerald-400 tracking-wide"
           >
-            Sarvar.dev
+            Dev.sarvar
           </Link>
 
           {/* Desktop Menu (Kompyuterlar uchun) */}
