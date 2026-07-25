@@ -5,7 +5,7 @@ import profileImg from '../assets/profileImg.png';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const mainSkills = ["HTML5 / CSS3", "SASS", "JavaScript (ES6+)", "React.js", "Vite", "Git / GitHub", "REST API"];
+  const mainSkills = ["HTML5 / CSS3", "SASS", "JavaScript (ES6+)", "React.js", "Vite", "Tailwind CSS", "Git / GitHub", "REST API"];
 
   return (
     <main className="relative max-w-4xl mx-auto px-6 py-12 space-y-20">
