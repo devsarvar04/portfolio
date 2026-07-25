@@ -13,7 +13,7 @@ import {
 import {
     SiSass,
     SiVite,
-    // SiTailwindcss
+    SiTailwindcss
 } from 'react-icons/si';
 import { TbApi } from 'react-icons/tb';
 
@@ -25,7 +25,7 @@ export default function About() {
         { name: "JavaScript", icon: FaJs, color: "text-yellow-400" },
         { name: "React.js", icon: FaReact, color: "text-sky-400" },
         { name: "Vite", icon: SiVite, color: "text-purple-400" },
-        // { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-teal-400" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-teal-400" },
         { name: "Git", icon: FaGitAlt, color: "text-orange-600" },
         { name: "GitHub", icon: FaGithub, color: "text-white" },
         { name: "REST API", icon: TbApi, color: "text-emerald-400" },
