@@ -7,7 +7,7 @@ export default function Projects() {
 
             {/* Sarlavha */}
             <div className="border-b border-neutral-800 pb-5 space-y-2">
-                <h1 className="text-3xl font-extrabold text-white tracking-tight">Barcha loyihalar</h1>
+                <h1 className="text-4xl font-extrabold text-white tracking-tight">Barcha loyihalar</h1>
                 <p className="text-neutral-400 text-sm">
                     Men yaratgan va ustida ishlagan barcha veb-loyihalar va ilovalar ro'yxati.
                 </p>
