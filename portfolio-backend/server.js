@@ -1,53 +1,68 @@
 const express = require('express');
 const cors = require('cors');
-const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
 
-// Middleware
-// app.use(cors({ origin: 'http://localhost:5173' }));
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://devsarvar.vercel.app',
+    'http://localhost:5173'
+  ],
+  methods: ['GET', 'POST'],
+}));
 
-// Contact API
+app.use(express.json());
+
 app.post('/api/contact', async (req, res) => {
-    const { name, email, message } = req.body;
+  const { name, email, message } = req.body;
 
-    if (!name || !email || !message) {
-        return res.status(400).json({ error: "Barcha maydonlarni to'ldiring!" });
+  if (!name || !email || !message) {
+    return res.status(400).json({ 
+      success: false, 
+      message: "Barcha maydonlarni to'ldiring!" 
+    });
+  }
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        access_key: process.env.WEB3FORMS_KEY,
+        name: name,
+        email: email,
+        message: message,
+        subject: `Portfoliodan yangi xabar: ${name}`
+      })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      res.status(200).json({ 
+        success: true, 
+        message: "Xabar muvaffaqiyatli yuborildi!" 
+      });
+    } else {
+      res.status(500).json({ 
+        success: false, 
+        message: data.message || "Xabar yuborishda xatolik yuz berdi!" 
+      });
     }
-
-    try {
-        // Nodemailer sozlamasi (Gmail orqali)
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.EMAIL_USER, // Sizning Gmail pochtangiz
-                pass: process.env.EMAIL_PASS   // Gmail App Password
-            }
-        });
-
-        // Pochtaga boradigan xabar
-        await transporter.sendMail({
-            from: email,
-            to: process.env.EMAIL_USER,
-            subject: `Portfoliodan yangi xabar: ${name}`,
-            html: `
-        <h3>Yangi xabar keldi!</h3>
-        <p><b>Ism:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Xabar:</b> ${message}</p>
-      `
-        });
-
-        res.status(200).json({ success: true, message: "Xabar muvaffaqiyatli yuborildi!" });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: "Serverda xatolik yuz berdi." });
-    }
+  } catch (error) {
+    console.error("Server xatoligi:", error);
+    res.status(500).json({ 
+      success: false, 
+      message: "Server bilan bog'lanishda xatolik!" 
+    });
+  }
 });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`Server ${PORT}-portda ishlamoqda...`);
+  console.log(`Server ${PORT}-portda ishlamoqda...`);
 });

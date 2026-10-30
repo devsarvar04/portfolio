@@ -26,10 +26,19 @@ export default function Contact() {
         e.preventDefault();
 
         try {
-            const res = await fetch('https://portfolio-backend-3muv.onrender.com/api/contact', {
+            const res = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    access_key: '251490d4-1a7a-4f60-a989-15ad481f9f26',
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                    subject: `Portfoliodan yangi xabar: ${formData.name}`
+                })
             });
 
             const data = await res.json();
