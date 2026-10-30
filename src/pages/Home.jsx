@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { projectsData } from '../data/projects'; // Loyihalarni import qilamiz
+import { projectsData } from '../data/projects';
 import profileImg from '../assets/profileImg.png'; 
 
 export default function Home() {
@@ -10,7 +10,6 @@ export default function Home() {
   return (
     <main className="relative max-w-4xl mx-auto px-6 py-12 space-y-20">
       
-      {/* HERO SECTION (O'zgarmadi) */}
       <section className="space-y-6">
         <div className="flex items-center gap-5 pb-2">
           <img 
@@ -32,7 +31,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TANLANGAN LOYIHALAR BO'LIMI - LINK ULANGI */}
       <section className="space-y-6">
         <div className="flex justify-between items-end border-b border-neutral-800 pb-3">
           <h2 className="text-xl font-bold text-white">Loyihalar</h2>
@@ -40,7 +38,6 @@ export default function Home() {
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {projectsData.map((project) => (
-            // Loyiha kartochkasi Link orqali mos sahifaga yo'naltiradi
             <Link 
               key={project.id} 
               to={`/projects/${project.id}`}
@@ -65,7 +62,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ASOSIY STAK VA FOOTER (O'zgarmadi) */}
       <section className="space-y-6">
         <div className="flex justify-between items-end border-b border-neutral-800 pb-3">
           <h2 className="text-xl font-bold text-white">Texnologiyalar</h2>
@@ -87,7 +83,6 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* MODAL (O'zgarmadi) */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-sm animate-fade-in" onClick={() => setIsModalOpen(false)}>
           <button className="fixed top-6 right-6 text-white/70 hover:text-white text-3xl font-light transition" onClick={() => setIsModalOpen(false)}>&times;</button>

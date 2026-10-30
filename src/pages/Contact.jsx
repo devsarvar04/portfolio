@@ -6,7 +6,8 @@ import {
     FaGithub,
     FaLinkedin,
     FaMapMarkerAlt,
-    FaPaperPlane
+    FaPaperPlane,
+    FaInstagram,
 } from 'react-icons/fa';
 
 export default function Contact() {
@@ -25,7 +26,7 @@ export default function Contact() {
         e.preventDefault();
 
         try {
-            const res = await fetch('https://portfolio-backend-3muv.onrender.com', {
+            const res = await fetch('https://portfolio-backend-3muv.onrender.com/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
@@ -55,6 +56,13 @@ export default function Contact() {
             link: "https://t.me/devsarvar",
             icon: FaTelegram,
             color: "text-sky-400"
+        },
+        {
+            title: "Instagram",
+            value: "instagram.com/devsarvar",
+            link: "https://instagram.com/devsarvar",
+            icon: FaInstagram,
+            color: "text-red-400"
         },
         {
             title: "GitHub",
