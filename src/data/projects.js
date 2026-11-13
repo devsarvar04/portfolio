@@ -1,5 +1,6 @@
 import project1Img from '../assets/tarjimonPro.png'; // Tarjimon Pro rasmi
 import project2Img from '../assets/hemisTestPlatform.png'; // HEMIS Test rasmi
+import project3Img from '../assets/academiaTalent.png'; // Academia Talent Selection rasmi
 
 export const projectsData = [
     {
@@ -49,5 +50,30 @@ export const projectsData = [
             'Brauzerda `http://localhost:5173` manziliga kiring'
         ],
         usage: 'Testni boshlash tugmasini bosing, berilgan vaqt ichida savollarga javob bering va "Testni yakunlash" tugmasi orqali natijangizni tekshiring.'
+    },
+    {
+        id: 'academia-talent',
+        title: 'Academia Talent Selection — 2026',
+        subtitle: "Tanlov va Qabul Platformasi (Full-Stack)",
+        desc: "Academia Xususiy Maktabi tomonidan tashkil etilgan 'Shahrisabz IT & English Talent Selection — 2026' tanlovi ishtirokchilarini onlayn ro'yxatdan o'tkazish, Telegram OTP orqali tasdiqlash, shaxsiy kabinet va admin boshqaruv paneliga ega full-stack veb-platforma.",
+        image: project3Img,
+        tags: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'Supabase (PostgreSQL)', 'Telegram Bot API'],
+        github: 'none',
+        demo: 'https://www.academiamaktabi.uz/',
+        features: [
+            'Telegram Bot orqali real telefon raqamni 5 xonali OTP kod bilan tasdiqlash va parolni tiklash',
+            "Maktab o'quvchilari (7–11-sinf) va bitiruvchilar uchun moslashuvchan dinamik ro'yxatdan o'tish formasi",
+            "Ishtirokchi shaxsiy kabineti: ariza holatini (Timeline) kuzatish, tashkilotchi xabarlarini o'qish va ma'lumotlarni tahrirlash",
+            "Admin Boshqaruv Paneli: jonli statistika, qidiruv, filtrlash va o'quvchi statusini o'zgartirib Telegram orqali xabarnoma yuborish",
+            "Ro'yxatdan o'tganlar bazasini veb-saytdan yoki Telegram botdan (.xlsx) Excel formatda yuklab olish"
+        ],
+        installation: [
+            'Rasmiy veb-saytga kiring: `https://www.academiamaktabi.uz`',
+            "Bosh sahifadagi 'Ro'yxatdan o'tish' tugmasini bosing va shaxsiy ma'lumotlaringizni kiriting",
+            "Telegram botga o'tib, telefon raqamingizni tasdiqlang va 5 xonali kodni oling",
+            'Kodni saytga kiritib shaxsiy kabinetingizni faollashtiring',
+            '🚫 Real tashkilot loyihasi bo\'lgani sababli GitHub repozitoriy yopiq (Private)'
+        ],
+        usage: "Sayt orqali ro'yxatdan o'tib, Telegram bot yordamida raqamingizni tasdiqlang. Shaxsiy kabinetga kirib arizangiz qaysi bosqichda ekanligini (Yuborildi, Saralashda, Qabul qilindi) va tashkilotchilar tomonidan yuborilgan xabarlarni kuzatib boring."
     }
 ];
